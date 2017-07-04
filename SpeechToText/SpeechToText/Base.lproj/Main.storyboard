@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--RecognizerVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="RecognizerVC" id="BYZ-38-t0r" customClass="RecognizerVC" customModule="SpeechToText" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEH-gk-9Xb">
+                                <rect key="frame" x="162.5" y="308.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Be8-0I-UfK"/>
+                                    <constraint firstAttribute="height" constant="50" id="Z8x-HC-t2c"/>
+                                </constraints>
+                                <state key="normal" image="recognize"/>
+                                <connections>
+                                    <action selector="btnStartRecignizeTapWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u9Y-ub-6RO"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pVQ-Jk-Q1S">
+                                <rect key="frame" x="51" y="378" width="272" height="60"/>
+                                <color key="backgroundColor" red="0.53725490200000003" green="0.85490196080000003" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="3hS-fd-n2C"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pkk-aJ-0Qs">
+                                <rect key="frame" x="51" y="211" width="272" height="67"/>
+                                <color key="backgroundColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="272" id="1Fc-UD-S9j"/>
+                                    <constraint firstAttribute="height" constant="67" id="oQt-56-Qku"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="pVQ-Jk-Q1S" secondAttribute="trailing" constant="36" id="3NJ-Fq-pcd"/>
+                            <constraint firstItem="pVQ-Jk-Q1S" firstAttribute="top" secondItem="tEH-gk-9Xb" secondAttribute="bottom" constant="19.5" id="9ex-0D-B6Y"/>
+                            <constraint firstItem="pVQ-Jk-Q1S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="35" id="OkA-ty-2Zy"/>
+                            <constraint firstItem="tEH-gk-9Xb" firstAttribute="top" secondItem="pkk-aJ-0Qs" secondAttribute="bottom" constant="30.5" id="SOs-bs-qvf"/>
+                            <constraint firstItem="tEH-gk-9Xb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="d1S-Zk-ilV"/>
+                            <constraint firstItem="pkk-aJ-0Qs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="51" id="iXN-sY-dcB"/>
+                            <constraint firstAttribute="trailing" secondItem="pkk-aJ-0Qs" secondAttribute="trailing" constant="52" id="jSS-2T-lDu"/>
+                            <constraint firstItem="tEH-gk-9Xb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yxr-S4-OKr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnRecord" destination="tEH-gk-9Xb" id="BcH-0P-GfL"/>
+                        <outlet property="txtRecognize" destination="pkk-aJ-0Qs" id="jT5-Wz-PzJ"/>
+                        <outlet property="txtStatus" destination="pVQ-Jk-Q1S" id="lq1-fh-9Lf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="81.409295352323838"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="recognize" width="150" height="150"/>
+    </resources>
+</document>
