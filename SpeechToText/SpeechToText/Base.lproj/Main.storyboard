@@ -52,21 +52,61 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Word to dictionary" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x0i-XC-boU">
+                                <rect key="frame" x="51" y="135" width="218" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="P9z-bD-tgZ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="vqo-uH-NsF"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBR-KR-StV">
+                                <rect key="frame" x="277" y="135" width="46" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="TEO-gH-cxW"/>
+                                    <constraint firstAttribute="width" constant="46" id="crG-Pq-1S0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="ADD">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnAddTapWithSener:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nSJ-la-ULJ"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.93333333333333335" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="pVQ-Jk-Q1S" secondAttribute="trailing" constant="36" id="3NJ-Fq-pcd"/>
+                            <constraint firstItem="pkk-aJ-0Qs" firstAttribute="top" secondItem="CBR-KR-StV" secondAttribute="bottom" constant="46" id="8g6-S9-OGB"/>
                             <constraint firstItem="pVQ-Jk-Q1S" firstAttribute="top" secondItem="tEH-gk-9Xb" secondAttribute="bottom" constant="19.5" id="9ex-0D-B6Y"/>
                             <constraint firstItem="pVQ-Jk-Q1S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="35" id="OkA-ty-2Zy"/>
+                            <constraint firstAttribute="trailing" secondItem="CBR-KR-StV" secondAttribute="trailing" constant="52" id="Pza-Gw-Aup"/>
+                            <constraint firstItem="pkk-aJ-0Qs" firstAttribute="top" secondItem="x0i-XC-boU" secondAttribute="bottom" constant="46" id="SLD-kk-Q5j"/>
                             <constraint firstItem="tEH-gk-9Xb" firstAttribute="top" secondItem="pkk-aJ-0Qs" secondAttribute="bottom" constant="30.5" id="SOs-bs-qvf"/>
+                            <constraint firstItem="x0i-XC-boU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="51" id="cD1-8G-139"/>
                             <constraint firstItem="tEH-gk-9Xb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="d1S-Zk-ilV"/>
                             <constraint firstItem="pkk-aJ-0Qs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="51" id="iXN-sY-dcB"/>
                             <constraint firstAttribute="trailing" secondItem="pkk-aJ-0Qs" secondAttribute="trailing" constant="52" id="jSS-2T-lDu"/>
+                            <constraint firstItem="CBR-KR-StV" firstAttribute="leading" secondItem="x0i-XC-boU" secondAttribute="trailing" constant="8" id="xgK-No-O6k"/>
                             <constraint firstItem="tEH-gk-9Xb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yxr-S4-OKr"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnRecord" destination="tEH-gk-9Xb" id="BcH-0P-GfL"/>
+                        <outlet property="txtAddWords" destination="x0i-XC-boU" id="hKn-ia-Z24"/>
                         <outlet property="txtRecognize" destination="pkk-aJ-0Qs" id="jT5-Wz-PzJ"/>
                         <outlet property="txtStatus" destination="pVQ-Jk-Q1S" id="lq1-fh-9Lf"/>
                     </connections>

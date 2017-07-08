@@ -8,12 +8,12 @@
 
 import UIKit
 
-class RecognizerVC: UIViewController, OEEventsObserverDelegate {
+class RecognizerVC: UIViewController, OEEventsObserverDelegate, UITextFieldDelegate {
     
     @IBOutlet var btnRecord:UIButton!
     @IBOutlet var txtStatus:UITextView!
     @IBOutlet var txtRecognize:UITextView!
-    
+    @IBOutlet var txtAddWords:UITextField!
     //Creating object of FliteController, Slt and OEEventsObserver
     var fliteController = OEFliteController()
     var slt = Slt()
@@ -27,12 +27,34 @@ class RecognizerVC: UIViewController, OEEventsObserverDelegate {
     //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fliteController.say(_:"A short statement.", with:self.slt)
+        self.openEarsEventsObserver = OEEventsObserver()
+        self.openEarsEventsObserver.delegate = self
         self.settingUpOpenEars()
+        
+        let v = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 5))
+        self.txtAddWords.leftView = v;
+        self.txtAddWords.leftViewMode = .always
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    /*======================================================
+     * Method Name: btnAddTap
+     * Parameter: sener:UIButton
+     * Return Type: nil
+     * Purpose: To add new words in dictionary
+     *======================================================*/
+    @IBAction func btnAddTap(sener:UIButton) {
+        if self.txtAddWords.text != "" {
+            self.words.append(self.txtAddWords.text!)
+            self.txtAddWords.text = ""
+            self.stopListening()
+            self.settingUpOpenEars()
+            self.startListening()
+        }
+        self.txtAddWords.resignFirstResponder()
     }
     
     //MARK: - Other Methods
@@ -43,9 +65,6 @@ class RecognizerVC: UIViewController, OEEventsObserverDelegate {
      * Purpose: To set EventsObserver and specifying model to recognize text from speech
      *======================================================*/
     func settingUpOpenEars() {
-        self.openEarsEventsObserver = OEEventsObserver()
-        self.openEarsEventsObserver.delegate = self
-        
         let lmGenerator: OELanguageModelGenerator = OELanguageModelGenerator()
         
         addWords()
@@ -65,12 +84,18 @@ class RecognizerVC: UIViewController, OEEventsObserverDelegate {
      *======================================================*/
     func addWords() {
         //add any thing here that you want to be recognized. Must be in capital letters
-        words.append("SUNDAY")
-        words.append("MONDAY")
-        words.append("TUESDAY")
-        words.append("WEDNESDAY")
-        words.append("THURSDAY")
-        words.append("FRIDAY")
+        words.append("WorkOrder")
+        words.append("CREATEWorkOrder")
+        words.append("CHECKIN")
+        words.append("CHECKOUT")
+        words.append("SEARCH")
+        words.append("REPORT")
+        words.append("HELP")
+        words.append("START")
+        words.append("STOP")
+        words.append("FIND")
+        words.append("PURCHASE")
+       /* words.append("FRIDAY")
         words.append("SATURDAY")
         words.append("MEN")
         words.append("WOMEN")
@@ -91,7 +116,7 @@ class RecognizerVC: UIViewController, OEEventsObserverDelegate {
         words.append("SEPTEMBER")
         words.append("OCTOBER")
         words.append("NOVEMBER")
-        words.append("DECEMBER")
+        words.append("DECEMBER")*/
     }
     
     /*======================================================
@@ -262,5 +287,11 @@ class RecognizerVC: UIViewController, OEEventsObserverDelegate {
     func micPermissionCheckCompleted(withResult: Bool) {
         print("Local callback: mic check completed.")
         self.txtStatus.text = "Local callback: mic check completed."
+    }
+    
+    //MARK: - TextField Delegate methods
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.txtAddWords.resignFirstResponder()
+        return true
     }
 }

@@ -328,7 +328,7 @@
 				INFOPLIST_FILE = SpeechToText/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.withalsolution.SpeechToText;
+				PRODUCT_BUNDLE_IDENTIFIER = com.withalsolution.recipes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2c1d5934-7c2b-4d43-b863-df77241cfcc2";
 				PROVISIONING_PROFILE_SPECIFIER = "Recipe deve";
@@ -352,7 +352,7 @@
 				INFOPLIST_FILE = SpeechToText/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.withalsolution.SpeechToText;
+				PRODUCT_BUNDLE_IDENTIFIER = com.withalsolution.recipes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2c1d5934-7c2b-4d43-b863-df77241cfcc2";
 				PROVISIONING_PROFILE_SPECIFIER = "Recipe deve";
