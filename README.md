@@ -33,7 +33,7 @@ like
 `OELanguageModelGenerator`
 This class is use to generate Language model and allow adds words for recognization.
 ```
- let name = "LanguageModelFileStarSaver"
+        let name = "LanguageModelFileStarSaver"
         lmGenerator.generateLanguageModel(from: words, withFilesNamed: name, forAcousticModelAtPath: OEAcousticModel.path(toModel: "AcousticModelEnglish"))
         
         lmPath = lmGenerator.pathToSuccessfullyGeneratedLanguageModel(withRequestedName: name)
@@ -43,7 +43,8 @@ This class is use to generate Language model and allow adds words for recognizat
 `OEPocketsphinxController`
 this controller use to start recognization and need to laguage model dictionary for recognize words with laguages here is a sample code.
 
-```do{
+```
+        do{
             try OEPocketsphinxController.sharedInstance().setActive(true)
         } catch {
             print(error)
@@ -56,7 +57,7 @@ Delegate methods where you can get words while recognization is
 func pocketsphinxDidReceiveHypothesis(_ hypothesis: String!, recognitionScore: String!, utteranceID: String!) { // Something was heard
         print("Local callback: The received hypothesis is \(hypothesis!) with a score of \(recognitionScore!) and an ID of \(utteranceID!)")
         self.txtRecognize.text = self.txtRecognize.text + " \(hypothesis!)\n"
-    }
+}
 ```
  
  You can add static words list by adding words in 'addWords()' method
@@ -73,12 +74,12 @@ func pocketsphinxDidReceiveHypothesis(_ hypothesis: String!, recognitionScore: S
         words.append("START")
         words.append("STOP")
         words.append("PURCHASE")
-    }
+ }
 ```
 
 To stop recognization speech recognization
 ```
 func stopListening() {
         OEPocketsphinxController.sharedInstance().stopListening()
-    }
+}
 ```
