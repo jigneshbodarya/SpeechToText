@@ -14,9 +14,7 @@ class RecognizerVC: UIViewController, OEEventsObserverDelegate, UITextFieldDeleg
     @IBOutlet var txtStatus:UITextView!
     @IBOutlet var txtRecognize:UITextView!
     @IBOutlet var txtAddWords:UITextField!
-    //Creating object of FliteController, Slt and OEEventsObserver
-    var fliteController = OEFliteController()
-    var slt = Slt()
+
     var openEarsEventsObserver = OEEventsObserver()
     
     var words: Array<String> = []
@@ -34,6 +32,11 @@ class RecognizerVC: UIViewController, OEEventsObserverDelegate, UITextFieldDeleg
         let v = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 5))
         self.txtAddWords.leftView = v;
         self.txtAddWords.leftViewMode = .always
+        let permission = UserDefaults.standard.bool(forKey: "IsGranted")
+        if  permission == false{
+            startListening()
+            UserDefaults.standard.set(true, forKey: "IsGranted")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,9 +53,12 @@ class RecognizerVC: UIViewController, OEEventsObserverDelegate, UITextFieldDeleg
         if self.txtAddWords.text != "" {
             self.words.append(self.txtAddWords.text!)
             self.txtAddWords.text = ""
-            self.stopListening()
-            self.settingUpOpenEars()
-            self.startListening()
+            
+            if OEPocketsphinxController.sharedInstance().isListening {
+                self.stopListening()
+                self.settingUpOpenEars()
+                self.startListening()
+            }
         }
         self.txtAddWords.resignFirstResponder()
     }
@@ -93,30 +99,7 @@ class RecognizerVC: UIViewController, OEEventsObserverDelegate, UITextFieldDeleg
         words.append("HELP")
         words.append("START")
         words.append("STOP")
-        words.append("FIND")
         words.append("PURCHASE")
-       /* words.append("FRIDAY")
-        words.append("SATURDAY")
-        words.append("MEN")
-        words.append("WOMEN")
-        words.append("HI")
-        words.append("HELLO")
-        words.append("HOW")
-        words.append("ARE")
-        words.append("YOU")
-        words.append("THANKS")
-        words.append("JANUARY")
-        words.append("FEBRUARY")
-        words.append("MARCH")
-        words.append("APRIL")
-        words.append("MAY")
-        words.append("JUNE")
-        words.append("JULY")
-        words.append("AUGUST")
-        words.append("SEPTEMBER")
-        words.append("OCTOBER")
-        words.append("NOVEMBER")
-        words.append("DECEMBER")*/
     }
     
     /*======================================================
@@ -131,6 +114,7 @@ class RecognizerVC: UIViewController, OEEventsObserverDelegate, UITextFieldDeleg
         } catch {
             print(error)
         }
+        
         OEPocketsphinxController.sharedInstance().startListeningWithLanguageModel(atPath: lmPath, dictionaryAtPath: dicPath, acousticModelAtPath: OEAcousticModel.path(toModel: "AcousticModelEnglish"), languageModelIsJSGF: false)
     }
     

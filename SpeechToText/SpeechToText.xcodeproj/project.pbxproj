@@ -13,7 +13,6 @@
 		840DF4261F0C0267009B5675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840DF4241F0C0267009B5675 /* LaunchScreen.storyboard */; };
 		840DF4391F0C04A2009B5675 /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 840DF4361F0C04A2009B5675 /* AcousticModelEnglish.bundle */; };
 		840DF43A1F0C04A2009B5675 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840DF4371F0C04A2009B5675 /* OpenEars.framework */; };
-		840DF43B1F0C04A2009B5675 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840DF4381F0C04A2009B5675 /* Slt.framework */; };
 		840DF43E1F0C04AC009B5675 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840DF43D1F0C04AC009B5675 /* AVFoundation.framework */; };
 		840DF4401F0C04C2009B5675 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840DF43F1F0C04C2009B5675 /* AudioToolbox.framework */; };
 		840DF4421F0C0507009B5675 /* RecognizerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840DF4411F0C0507009B5675 /* RecognizerVC.swift */; };
@@ -29,7 +28,6 @@
 		840DF42F1F0C0350009B5675 /* SpeechToText-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpeechToText-Bridging-Header.h"; sourceTree = "<group>"; };
 		840DF4361F0C04A2009B5675 /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
 		840DF4371F0C04A2009B5675 /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
-		840DF4381F0C04A2009B5675 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		840DF43D1F0C04AC009B5675 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		840DF43F1F0C04C2009B5675 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		840DF4411F0C0507009B5675 /* RecognizerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecognizerVC.swift; sourceTree = "<group>"; };
@@ -42,7 +40,6 @@
 			files = (
 				840DF4401F0C04C2009B5675 /* AudioToolbox.framework in Frameworks */,
 				840DF43E1F0C04AC009B5675 /* AVFoundation.framework in Frameworks */,
-				840DF43B1F0C04A2009B5675 /* Slt.framework in Frameworks */,
 				840DF43A1F0C04A2009B5675 /* OpenEars.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,7 +100,6 @@
 			children = (
 				840DF4361F0C04A2009B5675 /* AcousticModelEnglish.bundle */,
 				840DF4371F0C04A2009B5675 /* OpenEars.framework */,
-				840DF4381F0C04A2009B5675 /* Slt.framework */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
