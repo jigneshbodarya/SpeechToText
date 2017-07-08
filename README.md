@@ -59,3 +59,26 @@ func pocketsphinxDidReceiveHypothesis(_ hypothesis: String!, recognitionScore: S
     }
 ```
  
+ You can add static words list by adding words in 'addWords()' method
+ ```
+ func addWords() {
+        //add any thing here that you want to be recognized. Must be in capital letters
+        words.append("WorkOrder")
+        words.append("CREATEWorkOrder")
+        words.append("CHECKIN")
+        words.append("CHECKOUT")
+        words.append("SEARCH")
+        words.append("REPORT")
+        words.append("HELP")
+        words.append("START")
+        words.append("STOP")
+        words.append("PURCHASE")
+    }
+```
+
+To stop recognization speech recognization
+```
+func stopListening() {
+        OEPocketsphinxController.sharedInstance().stopListening()
+    }
+```
